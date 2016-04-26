@@ -25,7 +25,7 @@ $(document).ready(function() {
     p2 = new Player("Player 2");
     $("#player-strip-1").children().removeClass("active1");
     $("#1").addClass("active1");
-    $("#player-strip-2").children().removeClass("active2ß");
+    $("#player-strip-2").children().removeClass("active2");
     $("#11").addClass("active2");
   }
 
@@ -58,17 +58,18 @@ go();
     e.preventDefault();
     var $form = $(this);
     var url = $form.attr("action");
+    console.log(url);
     var params = $form.serialize();
     console.log(params);
+    var request = $.ajax({
+      url: url,
+      type: 'POST',
+      data: params
+    });
 
-    //need to get at the player names input
-    //use to instatiate p1 and p2
-    //and send to sinatra to instantiate in model
-
-
+    request.done(function (voteCount) {
+      $("#player_names").hide();
+    });
   });
-
-
-
 
 });
