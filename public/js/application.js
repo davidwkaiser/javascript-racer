@@ -14,8 +14,10 @@ $(document).ready(function() {
   }
   Player.prototype.evaluate = function() {
     if (this.position === 10){
-      alert(this.name + " wins!")
-      alert("clear this alert, then hit 'enter' to start again!");
+      console.log(this.name);
+      window.alert(this.name + " wins!");
+      window.alert("clear this alert, then hit 'enter' to start again!");
+      console.log("start new game");
       go();
     }
   }
